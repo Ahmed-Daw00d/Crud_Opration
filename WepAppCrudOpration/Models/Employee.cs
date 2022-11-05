@@ -8,7 +8,7 @@ namespace WepAppCrudOpration.Models
     {
         [Key]
         [Display(Name ="Id")]
-        public int EmployeeId { get; set; }
+        public int? EmployeeId { get; set; }
 
         [Required]
         [Display(Name="Name")]
