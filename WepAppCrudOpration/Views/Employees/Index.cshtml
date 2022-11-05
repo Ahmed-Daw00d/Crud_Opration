@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<WepAppCrudOpration.Models.Employee>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Home";
 }
 
-<h1>Index</h1>
+<h1>Home</h1>
 
 <p>
     <a asp-controller="Employees" asp-action="Create" class="btn btn-primary">Create New</a>
@@ -36,7 +36,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Department.DepartmentName)
             </th>
-            <th></th>
+            <th>Events</th>
         </tr>
     </thead>
     <tbody>
@@ -67,8 +67,11 @@
                 @Html.DisplayFor(modelItem => item.Department.DepartmentName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new {  id=item.EmployeeId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId },
+                new{
+                    onclick="return confirm('Are you sure from Deleted..')"
+                })
             </td>
         </tr>
 }
